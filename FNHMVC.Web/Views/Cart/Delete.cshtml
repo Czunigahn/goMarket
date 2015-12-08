@@ -1,0 +1,29 @@
+﻿@using BootstrapSupport
+@model Object
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="form-horizontal">
+        <legend>Are you sure you want to delete the Category?</legend>
+        @foreach (var property in Model.VisibleProperties())
+        {
+            using(Html.ControlGroupFor(property.Name)){
+                @Html.Label(property.Name.ToSeparatedWords(), new { @class = "control-label" })
+                 <div class="controls">
+                     @Html.Display(property.Name)
+                     @Html.Hidden(property.Name)
+                 </div>
+            }
+        }
+		<div class="form-actions">
+            <button type="submit" class="btn btn-primary">Delete</button>
+            @Html.ActionLink("Cancel", "Index", null, new { @class = "btn " })
+          </div>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<script type="text/javascript" src="https://s3.amazonaws.com/appfail-us/appfail.reporting.min.js?slug=7e435ee1-9f15-41ed-8796-a345550f5a67"></script>

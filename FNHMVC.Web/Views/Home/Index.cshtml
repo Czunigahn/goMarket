@@ -1,0 +1,124 @@
+﻿@model List<FNHMVC.Web.ViewModels.CategoryListFormModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<style type="text/css">
+    .well {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+</style>
+<link href="@Styles.Url("~/content/goMarketStyle.css")" rel="stylesheet"/>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3 well">
+            <!--Categories Menu-->
+            <ul class="nav nav-list">
+                <li class="nav-header">Categorias v4</li>
+                @*@foreach (var category in ViewBag.categories)
+                {
+                    <li><a href="#">@category.Name</a></li>
+                }*@
+                @foreach (var category in Model)
+                {
+                    <li class="dropdown-submenu">
+                        <a href="#" tabindex="-1">@category.category.Name</a>
+                        @if(category.childs.Count>0)
+                        {
+                            <ul class="dropdown-menu">
+                            @foreach (var subcategory in category.childs)
+                            {
+                                <li><a href="#">@subcategory.Name</a></li>
+                            }
+                    
+                            </ul>
+                        }
+                    </li>
+                }
+
+
+                <li class="divider"></li>
+                <li><a href="#">More Categories...</a></li>
+            </ul>
+        </div>
+        <div class="span9">
+            <!-- Hero Slider-->
+            <div id="myCarousel" class="carousel slide">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="http://rtm.ebaystatic.com/0/RTMS/Image/MERC_DD-Q1Generic-4Item-NoClock_Q113_rev0219_980x270.gif" alt="">
+                        <div class="carousel-caption">
+                            <h4>First Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="http://rtm.ebaystatic.com/0/RTMS/Image/MERC_DD-Q1Generic-4Item-NoClock_Q113_rev0219_980x270.gif" alt="">
+                        <div class="carousel-caption">
+                            <h4>Second Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="http://rtm.ebaystatic.com/0/RTMS/Image/MERC_DD-Q1Generic-4Item-NoClock_Q113_rev0219_980x270.gif" alt="">
+                        <div class="carousel-caption">
+                            <h4>Third Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+            </div>
+            <span class="span9"></span>
+            <span class="span9"></span>
+        </div>
+</div>
+
+        
+
+<!--Items List-->
+        <div class="row-fluid  box">
+            
+            <ul class="thumbnails" id="container-thumbnails">
+                @foreach(var item in ViewBag.sales)
+                {
+                    <!--Item-->
+                    <li class="span2">
+<div class="thumbnail @if (item.Spotlight && item.SpotlightApprove)
+                                                  {
+                                                      var x = "Spotlight"; 
+                                                      @x
+                                                  } ">
+                                <div class="caption @if (item.HasDeal && (item.DateFromDeal <= DateTime.Today && item.DateToDeal >= DateTime.Today))
+                                                    {
+                                                        var x = "Deal"; 
+                                                        @x
+                                                    }">
+                                    <h4>@item.Title</h4>
+                                    <p>@item.Description</p>
+                                    <p>@if (item.HasDeal && (item.DateFromDeal <= DateTime.Today && item.DateToDeal >= DateTime.Today))
+                                                    {
+                                                        <strong>Costo Real: <del>@item.Cost</del><br />Oferta: @item.CostDeal</strong>
+                                                    }else{<strong>@item.Cost</strong>}</p>
+                                    <p><a href="/Sale/ViewSale/@item.SaleId" class="btn" rel="tooltip" title="Preview"><i class="icon-eye-open"></i></a> <a href="/Home/UserProfile/@item.User.UserId" rel="tooltip" title="Seller Profile" class="btn"><i class="icon-share"></i></a></p>
+                                </div>
+                            <img src="@item.Picture" alt="ALT NAME">
+                        </div>
+                        <h6>en @item.Category.Name por @item.User.FirstName  @item.User.LastName  </h6>
+                    </li>
+                }
+            </ul>
+            <div id="loadingbar" style="display:none;position:fixed;bottom:0;left:0;right:0;background-color:#000;color:#FFF;text-align:center;"><b><i>Loading next 20...</i></b></div>
+        </div>
+
+    </div>
+

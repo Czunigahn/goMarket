@@ -1,0 +1,120 @@
+﻿@using BootstrapSupport
+@model FNHMVC.Web.ViewModels.RatingFormModel
+
+
+<div class="well span6" id="DivRate">
+    <div class="container" style="width: auto;">
+        <button type="button" class="btn btn-inverse" data-toggle="collapse" data-target="#demo">
+            Escribir un comentario<br />
+        </button>
+
+        <div id="demo" class="collapse off">
+
+            <div class="span5 well">
+
+
+                @if (Model.ReviewId <= 0)
+                {
+                    <h6 class="pull-left">Valorar esta publicación</h6>
+                    <br />
+                    <br />
+                    
+                    <input class="span3" id="new_title" name="name" placeholder="Titulo" type="text" maxlength="20">    
+                    <textarea class="span4" id="new_message" name="new_message" maxlength="140"
+                        placeholder="Escribe tu comentarario" rows="5">
+                    </textarea>
+                
+                    <div id="starToRate"></div>
+
+                    <input id="ratingValue" type="text" placeholder="Text input" hidden="hidden" value="">
+                
+                }
+
+                @if (Model.ReviewId > 0)
+                {
+                    <h6 class="pull-left">Tu valoración</h6>
+                    <br />
+                    <br />
+                    
+                    <input class="span3" id="new_title" name="name" placeholder="Titulo" value="@Model.UserReview.Title" type="text" maxlength="20">    
+                    
+                    <textarea class="span4" id="new_message" name="new_message" maxlength="140" aria-valuetext="@Model.UserReview.Comment"
+                        placeholder="Escribe tu comentarario" rows="5">
+                    </textarea>
+                
+                    <div id="starToRate" data-score="@Model.UserReview.Value"></div>
+
+                    <input id="ratingValue" type="text" placeholder="Text input" hidden="hidden" value="@Model.UserReview.Value">
+                }
+
+                <br />
+
+
+
+                <button class="btn btn-info" id="btnRating" type="submit">Publicar</button>
+
+            </div>
+
+
+
+        </div>
+
+        <h5 class="text-success">Valoraciones de usuarios <small>@Model.TitleSale</small></h5>
+
+
+        @Html.HiddenFor(x => x.SaleId)
+
+        <div class="well span3">
+            <div class="container" style="width: auto;">
+                <small>5 estrellas (@Model.Start5Avg.ToString()%) - @Model.Start5Count.ToString() </small>
+                <div class="progress progress-info">
+                    <div class="bar" style="width: @Model.Start5Avg.ToString()%"></div>
+                </div>
+
+                <small>4 estrellas (@Model.Start4Avg.ToString()%) - @Model.Start4Count.ToString() </small>
+                <div class="progress progress-success">
+                    <div class="bar" style="width: @Model.Start4Avg.ToString()%"></div>
+                </div>
+
+                <small>3 estrellas (@Model.Start3Avg.ToString()%) - @Model.Start3Count.ToString() </small>
+                <div class="progress progress-warning">
+                    <div class="bar" style="width: @Model.Start3Avg.ToString()%"></div>
+                </div>
+
+                <small>2 estrellas (@Model.Start2Avg.ToString()%) - @Model.Start2Count.ToString() </small>
+                <div class="progress progress-danger">
+                    <div class="bar" style="width: @Model.Start2Avg.ToString()%"></div>
+                </div>
+
+                <small>1 estrella (@Model.Start1Avg.ToString()%) - @Model.Start1Count.ToString() </small>
+                <div class="progress progress-inverse">
+                    <div class="bar" style="width: @Model.Start1Avg%"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="well span1=2">
+            <div class="container" style="width: auto;">
+                <legend>
+                    <div style="text-align: center;">
+                        <small><strong>Calificación promedio</strong> </small>
+
+                        <h2>@Model.SaleAvg</h2>
+
+                        <div id="starBegin" data-score="@Model.SaleAvg"></div>
+
+
+                        <div style="text-align: center;">
+                            <small><strong>@Model.SaleCount</strong></small>
+                        </div>
+
+                    </div>
+                </legend>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

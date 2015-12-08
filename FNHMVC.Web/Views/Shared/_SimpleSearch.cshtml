@@ -1,0 +1,24 @@
+﻿@model FNHMVC.Web.ViewModels.SearchFormModel
+@using (Html.BeginForm("Search", "Home",FormMethod.Post, new { @class = "form-search form-inline form-search form-margin" }))
+                            {
+                                <div class="input-append input-prepend subnavbar-item">
+                                
+                                    @*<div class="btn-group">
+                                        <button data-toggle="dropdown" class="btn dropdown-toggle"> <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            @if(ViewBag.categories!=null)
+                                            {
+                                                foreach (var category in ViewBag.categories)
+                                            {
+                                                <li><a href="#">@category.Name</a></li>
+                                            }
+                                            }
+                                            
+                                            <li class="divider"></li>
+                                            <li><a href="#">More Categories...</a></li>
+                                        </ul>
+                                    </div>*@
+                                    @Html.TextBoxFor(model => model.GeneralFilter,new {@class = "search span6"})
+                                    <button type="submit" class="btn"><span class="icon-search"></span></button>
+                                </div>
+                            }

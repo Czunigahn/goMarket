@@ -1,0 +1,82 @@
+﻿@model IEnumerable<FNHMVC.Model.Sale>
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Publicaciones pendientes de aprobación</h2>
+    </div>
+</legend>
+
+<p>
+    @Html.ActionLink("Administración", "Menu", "Admin")
+</p>
+
+<div class="well">
+    <div class="container" style="width: auto;">
+        <table class="table table-hover-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Imagen</th>
+                    <th>Categoria</th>
+                    <th>Titulo</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Inventario</th>
+                    <th>Creado</th>
+                    <th>Modificado</th>
+
+                    <th title="Cambiar" style="width: 36px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{var index = 0;}
+                @foreach (var p in Model)
+                {
+                    index++;
+
+                    <tr>
+                        <td>@index.ToString()</td>
+                        <td>
+
+                            <style>
+                            .with-bg-size
+                            {
+                                background-image: url('@p.Picture');
+                                width: 200px;
+                                height: 100px;
+                                background-position: center;
+                                background-size: cover;
+                            }
+                        </style>
+
+                            <div class="with-bg-size"></div>
+
+                        </td>
+                        <td>@p.Category.Name</td>
+                        <td>@p.Title</td>
+                        <td>@p.Description</td>
+                        <td>@p.Cost</td>
+                        <td>@p.Quantity</td>
+
+                        @if (p.ActiveForSales)
+                        { <td>Si</td> }
+                        @if (!p.ActiveForSales)
+                        { <td>No</td> }
+
+                        <td>@p.Created.ToShortDateString()  @p.Created.ToShortTimeString() </td>
+                        <td>@p.Modified.ToShortDateString()  @p.Modified.ToShortTimeString() </td>
+                        <td>
+                            @Html.ActionLink(" ", "DenyChange", "Admin", new { id = p.SaleId }, new { @class = "icon-thumbs-down" })
+                            @Html.ActionLink(" ", "ApprobalChange", "Admin", new { id = p.SaleId }, new { @class = " icon-ok" })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

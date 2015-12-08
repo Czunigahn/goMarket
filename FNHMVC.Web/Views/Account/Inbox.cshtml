@@ -1,0 +1,76 @@
+﻿@model IEnumerable<FNHMVC.Model.UserInbox>
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Correo <small>Mensajes</small> </h2>
+    </div>
+</legend>
+
+<p>
+    @Html.ActionLink("Perfil", "MyAccount", "Account", new {@class="btn"})
+    @Html.ActionLink("Actualizar", "Inbox", "Account", new {@class="btn"})
+    @Html.ActionLink("Redactar", "Inbox", "Account", new {@class="btn"})
+    @Html.ActionLink("Eliminar", "Inbox", "Account", new {@class="btn"})
+</p>
+
+<div class="well">
+    <div class="container" style="width: auto;">
+        <table class="table table-hover-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="span1"><input type="checkbox"></th>
+                     <th class="span2"></th
+                     <th class="span2"></th
+                     <th class="span4"></th
+                     <th class="span6"></th
+                     <th class="span12"></th
+
+                    
+                    <th title="Cambiar" style="width: 50px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{var index = 0;}
+                @foreach (var p in Model)
+                {
+                    index++;
+
+                    <tr>
+                        
+                        <td>@index.ToString()</td>                        
+                        <td><input type="checkbox"> <a href="#"><i class="icon-star-empty"></i></a></td>
+                      @*@if (p.User.Followers.Where(x=> x.User*@
+                         <td><span class="label pull-right">Suscriptor</span></td>
+                        <td>@p.User.FullName</td>
+                        
+                        <td>@p.Subject</td>
+                        @if (p.Message.Trim().Length >= 25)
+                        { <td>@p.Message.Substring(0, 25) ...</td> }
+
+                        @if (p.Message.Trim().Length < 25)
+                        { <td>@p.Message</td> }
+                        
+                        @if (p.WasRead)
+                        {<td><a href="#"><i class=" icon-folder-open"></i></a></td>}
+                        
+                        @if (!p.WasRead)
+                        {<td><a href="#"><i class=" icon-folder-close"></i></a></td>}
+
+                        <td>@p.DateCreate.ToShortDateString() @p.DateCreate.ToShortTimeString()  </td>
+
+                        <td>
+                            @Html.ActionLink(" ", "ReadMessage", "Account", new { id = p.UserInboxId }, new { @class = " icon-inbox" })
+                            @Html.ActionLink(" ", "DeleteMessage", "Account", new { id = p.UserInboxId }, new { @class = " icon-remove" })                            
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

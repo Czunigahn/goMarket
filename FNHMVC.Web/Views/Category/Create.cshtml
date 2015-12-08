@@ -1,0 +1,21 @@
+﻿@model FNHMVC.Web.ViewModels.CategoryFormModel
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+ }
+
+@using (Html.BeginForm("Save", "Category"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Crear</legend>   
+        @Html.Partial("_CreateOrEdit", Model)
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Volver", "Index")
+</div>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FNHMVC.Model.Denounce>
+
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<div id="divUserList">
+   <legend>
+    <div style="text-align: center;">
+        <h2>Denuncias de usuarios</h2>
+    </div>
+</legend>
+
+<p>
+    @Html.ActionLink("Administración", "Menu", "Admin")
+</p>
+
+<div class="well">
+    <div class="container" style="width: auto;">
+    <table class="table table-hover-bordered table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Usuario que denunció</th>
+                <th>Usuario denunciado</th>
+                <th>Razón</th>
+                <th>Comentario</th>
+
+                <th title="Cambiar" style="width: 36px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @{var index = 0;}
+            @foreach (var p in Model)
+            {
+                index++;
+
+                <tr>
+                    <td>@index.ToString()</td>
+
+                    <td><a href="/Home/UserProfile/@p.UserDenouncing.UserId">@p.UserDenouncing.FullName</a></td>
+                    <td><a href="/Home/UserProfile/@p.UserToDenounce.UserId">@p.UserToDenounce.FullName</a></td>
+                    <td>@p.Reason</td>
+                    <td>@p.Comment</td>
+                    <td>
+                        @Html.ActionLink(" ", "DisableUser", "Admin", new { id = p.UserToDenounce.UserId, denounce = p.DenounceId }, new { @class = "icon-lock" })
+                        @Html.ActionLink(" ", "IgnoreDenounce", "Admin", new { id = p.DenounceId }, new { @class = "icon-thumbs-down" })
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+        </div>
+</div>
+</div>

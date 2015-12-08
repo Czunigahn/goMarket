@@ -1,0 +1,69 @@
+﻿@model IEnumerable<FNHMVC.Model.UserReviews>
+@{
+    //Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+@foreach (var review in Model)
+{
+    <div class="span9 well">
+        <div class="row">
+            <div class="span8">
+                <div class="row">
+                    <div class="span8">
+                        <h4><strong><a href="#">@review.Title</a></strong></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span2">
+                        <a href="#" class="thumbnail">
+                            @if (review.User.Picture.IsEmpty())
+                            {
+                                <img src="http://placehold.it/260x180" alt="">
+                            }
+                            @if (!review.User.Picture.IsEmpty())
+                            {
+                                <img src="@review.User.Picture" alt="" height="260" width="180">
+                            }
+                        </a>
+                    </div>
+                    <div class="span6">
+
+                        <p>
+                            @review.Comment.PadRight(140)
+                        </p>
+
+                        <div id="starReview" data-score="@review.Value"></div>
+
+                        @if (review.Value <= 1)
+                        {
+                            <p>Valoración: @review.Value estrella</p>
+                        }
+                        @if (review.Value > 1)
+                        {
+                            <p>Valoración: @review.Value estrellas</p>
+                        }
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span8">
+                        <p></p>
+                        <p>
+                            <i class="icon-user"></i>Por <a href="#"></a>
+                            <td><strong>@Html.ActionLink(@review.User.FullName, "UserProfile", "Home", new { id = @review.User.UserId }, new { @class = "label" })</strong> </td>
+                            <i class="icon-calendar"></i>@review.Date.ToShortDateString() @review.Date.ToShortTimeString()
+
+                            <a href="#"><span class="label label-info">WebSite</span></a>
+                            <a href="#"><span class="label label-info">YouTube</span></a>
+                            <a href="#"><span class="label label-info">Facebook</span></a>
+                            <a href="#"><span class="label label-info">Google</span></a>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+}

@@ -1,0 +1,16 @@
+﻿@using BootstrapSupport
+@model FNHMVC.Web.ViewModels.UserContactModel
+
+
+<div>
+    @Html.HiddenFor(x => x.UserIdToContact)
+    @Html.TextBoxFor(x => x.Subject, new { @class = "input-block-level", @placeholder = "Asunto" })
+    @Html.TextAreaFor(x => x.Message, new { @class = "input-block-level", @placeholder = "Mensaje", @rows="10" })
+
+    <label class="checkbox">
+        @Html.CheckBoxFor(x => x.SentEmail) Enviar correo?
+    </label>
+
+    <br>
+</div>
+

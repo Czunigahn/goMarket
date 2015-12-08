@@ -1,0 +1,73 @@
+﻿@model IEnumerable<FNHMVC.Model.Follow>
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        @if (@Model.Count() > 0)
+        {
+            <h4>Tus suscriptores<small>
+                <h5>perfiles</h5>
+            </small></h4>
+        }
+        @if (@Model.Count() <= 0)
+        {
+             <h4>Clientes<small>
+                <h5>perfiles</h5>
+            </small></h4>
+        }
+
+    </div>
+</legend>
+<p>
+    @*@Html.ActionLink("Perfil", "UserProfile", "Home", new { })*@
+</p>
+
+<div class="well">
+    <div class="container" style="width: auto;">
+        <table class="table table-hover-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Fotografía</th>
+                    <th>Usuario</th>
+                    <th>Miembre desde</th>
+                    <th>Perfil</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{var index = 0;}
+                @foreach (var p in Model)
+                {
+                    index++;
+
+                    <tr>
+                        <td>@index.ToString()</td>
+                        <td>
+
+                            <style>
+                            .with-bg-size
+                            {
+                                background-image: url(@p.Follower.Picture);
+                                width: 200px;
+                                height: 100px;
+                                background-position: center;
+                                background-size: cover;
+                            }
+                        </style>
+
+                            <div class="with-bg-size"></div>
+
+                        </td>
+                        <td>@p.Follower.FirstName @p.Follower.LastName</td>
+                        <td>@p.Follower.DateCreated.ToShortDateString()  @p.Follower.DateCreated.ToShortTimeString() </td>
+                        <td><strong>@Html.ActionLink("Ver perfil", "UserProfile", "Home", new { id = @p.Follower.UserId }, new { @class = "label" })</strong> </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

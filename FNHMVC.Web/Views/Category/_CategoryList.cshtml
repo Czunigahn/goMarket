@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FNHMVC.Model.Category>
+@{
+    //Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Categorias</h2>
+    </div>
+</legend>
+
+<p>
+    @Html.ActionLink("Administración", "Menu", "Admin")
+    @Html.ActionLink("Crear", "Create")
+</p>
+
+<div class="well">
+    <div class="container" style="width: auto;">
+        <table class="table table-hover-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th title="Cambiar" style="width: 36px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{var index = 0;}
+                @foreach (var p in Model)
+                {
+                    index++;
+
+                    <tr>
+                        <td>@index.ToString()</td>
+
+                        <td>@p.Name</td>
+                        <td>@p.Description</td>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", "Category", new { id = p.CategoryId }, new { @class = "icon-edit" })
+                            @Html.ActionLink(" ", "Delete", "Category", new { id = p.CategoryId }, new { @class = "icon-remove-sign" })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

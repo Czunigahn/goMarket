@@ -1,0 +1,91 @@
+@using System.Globalization
+@using System.Web.Optimization
+@using BootstrapSupport
+@using NavigationRoutes
+@model FNHMVC.Web.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+<style type="text/css">
+      .auth-form {
+        width: 400px;
+        margin: 60px auto;
+        }
+      .auth-form-header {
+        position: relative;
+        padding: 10px 20px;
+        margin: 0;
+        color: #fff;
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+        background-color: #6c8393;
+        background-image: -moz-linear-gradient(#7f95a5, #6c8393);
+        background-image: -webkit-linear-gradient(#7f95a5, #6c8393);
+        background-image: linear-gradient(#7f95a5, #6c8393);
+        background-repeat: repeat-x;
+        border: 1px solid #6e8290;
+        border-bottom-color: #586873;
+        border-radius: 4px 4px 0 0;
+        }
+      .auth-form-body {
+        padding: 20px;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 14px;
+        background-color: #fff;
+        border: 1px solid #d8dee2;
+        border-top-color: white;
+        border-radius: 0 0 4px 4px;
+        }
+
+    </style>  
+
+    <div class="auth-form">
+        @using (Html.BeginForm((string)ViewBag.FormAction, "Account"))
+        {
+           // @Html.ValidationSummary(true, "Log in was unsuccessful. Please correct the errors and try again.")
+
+            <div class="auth-form-header">
+                <strong>Sign in</strong>
+            </div>
+            <div class="auth-form-body">
+                <label>
+                    <strong>Username or Email</strong>
+                </label>
+                <div class="control-group">
+                    <div class="controls">
+                        @Html.TextBoxFor(x => x.UserName, new {@class = "input-block-level", @placeholder = "Username or Email"})
+                        @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "help-inline" })
+                    </div>
+                </div>
+                <label>
+                    <strong>Password @Html.ActionLink("(forgot password)", "ForgotPassword")</strong>
+                </label>
+                <div class="control-group">
+                    <div class="controls">
+                        @Html.PasswordFor(x => x.Password, new {@class = "input-block-level", @placeholder = "Password"})
+                        @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-inline" })
+                    </div>
+                </div>
+                           
+            <label class="checkbox">
+                @Html.CheckBoxFor(x => x.RememberMe) Remember me
+            </label>
+                <button class="btn  btn-small" type="submit">Sign in</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Register", "Register") if you don't have an account.
+                <dic><li class="divider-vertical"></li></dic>
+                @Html.ActionLink("Login with Facebook", "Facebook")
+            </div>
+        }
+    </div>
+
+
+
+       
+      

@@ -1,0 +1,99 @@
+@using System.Web.Optimization
+@using BootstrapSupport
+@using NavigationRoutes
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>@ViewBag.Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="@Styles.Url("~/content/css")" rel="stylesheet"/>
+        @RenderSection("head", required: false)
+        @Html.Partial("_html5shiv")
+        @* favicons and touch icons go here *@
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#" title="change in _bootstrapLayout.basic.cshtml"><strong>LexStore</strong></a>
+                    <ul class="nav pull-left">
+                        <li class="divider-vertical"></li>
+                        <li><a href="/notifications"><i class="icon-eye-open"></i></a></li>
+                        <li class="divider-vertical"></li>
+                    </ul>
+                    <div class="nav-collapse collapse pull-right">
+                        <form class="navbar-search ">
+                            <div class="input-prepend input-append">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown">All<span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">All</a></li>
+                                        <li><a href="#">Electronicas</a></li>
+                                        <li><a href="#">Fashion</a></li>
+                                        <li><a href="#">Home & Garden</a></li>
+                                    </ul>
+                                </div>
+                                <input type="text" class="span4 search-query">
+                                <button type="button" class="btn">Go!</button>
+                            </div>
+                        </form>
+                        <ul class="nav">
+                            <li class="divider-vertical"></li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li id="fat-menu" class="dropdown">
+                                <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i><b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <div class="container-fluid">
+            @Html.Partial("_alerts")
+            @Html.Partial("_validationSummary")
+            @RenderBody()   
+            <hr>
+            <footer>
+                <p>&copy; Company @System.DateTime.Now.ToString("yyyy")</p>
+            </footer> 
+        </div>
+         @Scripts.Render("~/js")
+         @RenderSection("Scripts", required: false)
+    </body>
+</html>
+
+
+<script>
+    jQuery.validator.setDefaults({
+        highlight: function (element, errorClass, validClass) {
+            if (element.type === 'radio') {
+                this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+            } else {
+                $(element).addClass(errorClass).removeClass(validClass);
+                $(element).closest('.control-group').removeClass('success').addClass('error');
+            }
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            if (element.type === 'radio') {
+                this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+            } else {
+                $(element).removeClass(errorClass).addClass(validClass);
+                $(element).closest('.control-group').removeClass('error').addClass('success');
+            }
+        }
+    });
+</script>

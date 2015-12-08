@@ -1,0 +1,185 @@
+@using System.Globalization
+@using System.Web.Optimization
+@using BootstrapSupport
+@using FNHMVC.Web.ViewModels
+@using NavigationRoutes
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="@Styles.Url("~/content/css")" rel="stylesheet"/>
+    <link href="@Url.Content("~/Content/SiteUploaderImages.css")" rel="stylesheet" />
+    @RenderSection("Styles", false)
+    <style type="text/css">
+        body
+        {
+            padding-top: 0px;
+            padding-bottom: 30px;
+        }
+
+        .body-padding
+        {
+            padding-top: 110px;
+        }
+
+        .form-margin
+        {
+            margin-bottom: 0px;
+        }
+
+        .subnav
+        {
+            top: 30px;
+        }
+
+        .navbar
+        {
+            background-color: #ffffff;
+            margin: 0px;
+            padding: 0px 0px 0px;
+            border-bottom: 1px;
+            border-bottom: 1px solid #D4D4D4;
+            box-shadow: 0 1px 2px #DDDDDD;
+        }
+
+        .navbar-padding
+        {
+            padding-top: 10px;
+        }
+
+        .navbar-with-subnavbar
+        {
+            margin-bottom: 0px;
+        }
+
+        .navbar .btn-group
+        {
+            margin-top: 0px;
+        }
+
+        .subnavbar-item
+        {
+            border: 2px solid #909090;
+            border-radius: 4px 4px 4px 4px;
+            /*border-right: 0px;
+            border-left: 0px;*/
+        }
+    </style>
+
+    @RenderSection("head", required: false)
+    @Html.Partial("_html5shiv")
+    @* favicons and touch icons go here *@
+    <script src="~/Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var loading = false;
+        $(window).scroll(function () {
+            if ((($(window).scrollTop() + $(window).height()) + 250) >= $(document).height()) {
+                if (loading == false) {
+                    loading = true;
+                    $('#loadingbar').css("display", "block");
+                    $.get("/Home/GetSales/", function (loaded) {
+                        $('#container-thumbnails').append(loaded);
+                        $('#loadingbar').css("display", "none");
+                        loading = false;
+                    });
+                }
+            }
+        });
+    </script>
+
+
+</head>
+<body>
+    @* Nav Bar Start *@
+    <div class="navbar">
+        <div class="navbar-inner navbar-fixed-top navbar-with-subnavbar">
+            <ul class="nav">
+
+                <li class="li-height"><a href="#">Hola @if (Request.IsAuthenticated)
+                                                       {
+                    @User.Identity.Name.ToString(CultureInfo.InvariantCulture)
+                                                       }
+                                                       else
+                                                       {
+                    @Html.Raw("my friend")
+                                                       }, Bienvenido a goMarket!</a></li>
+                <li class="divider-vertical"></li>
+                <li class="li-height">@Html.ActionLink("Mi cuenta", "MyAccount", "Account")</li>
+
+                @if (User.IsInRole(FNHMVC.Web.Core.Models.Roles.Admin))
+                {
+                    <li class="divider-vertical"></li>
+                    <li class="li-height">@Html.ActionLink("Administracion", "Menu", "Admin")</li>
+                }
+                <li class="divider-vertical"></li>
+                <li class="li-height">@Html.ActionLink("Mis deseos", "Index", "WishList")</li>
+                <li class="divider-vertical"></li>
+                <li class="li-height">@Html.ActionLink("Pagara", "Index", "Cart")</li>
+                <li class="divider-vertical"></li>
+                @if (Request.IsAuthenticated)
+                {
+                    <li class="li-height">@Html.ActionLink("Cerrar sesion", "Logout", "Account")</li>        
+                }
+                else
+                {
+                    <li class="li-height">@Html.ActionLink("Registrarme", "Register", "Account")</li>
+                    <li class="divider-vertical"></li>
+                    <li class="li-height">@Html.ActionLink("Iniciar sesion", "Login", "Account")</li>
+                }
+
+
+            </ul>
+        </div>
+    </div>
+
+    @* Nav Bar End *@
+
+    @* Sub Nav Bar Start *@
+    <div class="subnav navbar-fixed-top">
+        <div class="navbar navbar-padding">
+            <div class="container">
+                <ul class="nav span2">
+                    <li><a href="/">
+                        <img alt="goMarket" src="http://demo.galathemes.com/gala-yomarket/skin/frontend/default/galayomarket/images/logo.png"></a></li>
+                </ul>
+                <ul class="span8">
+                    <div>
+                        @Html.Partial("_SimpleSearch", new SearchFormModel())
+                    </div>
+                </ul>
+
+
+                <ul class="nav">
+                    <div class="btn-group subnavbar-item">
+                        <button data-toggle="dropdown" class="btn dropdown-toggle span2"><i class="icon-shopping-cart"></i>Carrito {0} : <span class="caret"></span></button>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        }
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @* Sub Nav Bar End *@
+
+
+    <div class="container-fluid body-padding">
+
+        @Html.Partial("_alerts")
+        @RenderBody()
+
+    </div>
+    <!-- container -->
+    @Scripts.Render("~/js")
+    @RenderSection("Scripts", required: false)
+    <script type="text/javascript" src="http://mottie.github.com/tablesorter/js/jquery.tablesorter.js"></script>
+</body>
+</html>
+

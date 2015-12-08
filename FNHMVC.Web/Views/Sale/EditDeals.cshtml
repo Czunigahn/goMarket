@@ -1,0 +1,26 @@
+﻿@model FNHMVC.Web.ViewModels.DealsFormModel
+@{
+    ViewBag.Title = "EditDeals";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Editar Oferta</h2>
+    </div>
+</legend>
+
+@using (Html.BeginForm("EditDeals", "Sale"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        @Html.Partial("_CreateDeals", Model)
+
+
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Editar</button>
+        @Html.ActionLink("Cancelar", "Index", "Sale", new { @class = "btn " })
+    </div>
+}

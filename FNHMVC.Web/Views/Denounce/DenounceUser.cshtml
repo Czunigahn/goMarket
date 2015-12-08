@@ -1,0 +1,52 @@
+﻿@model FNHMVC.Web.ViewModels.DenounceUserFormModel
+
+@{
+    ViewBag.Title = "Denunciar Venta";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Denunciar Usuario</h2>
+    </div>
+</legend>
+
+@using (Html.BeginForm("DenounceUser", "Denounce"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div class="well span8">
+            <div class="container" style="width: auto;">
+                <div class="editor-label">
+                    Nombre Usuario:
+                </div>
+                <div class="editor-field">
+                    <strong>@(Model.UserName)</strong>
+                </div> 
+                
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Reason)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.Reason, Model.Reasons, "--Select--")
+                    @Html.ValidationMessageFor(model => model.Reason)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Comment)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Comment)
+                    @Html.ValidationMessageFor(model => model.Comment)
+                </div>
+
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Enviar Denuncia</button>
+    </div>
+}

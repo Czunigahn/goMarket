@@ -1,0 +1,27 @@
+﻿@model FNHMVC.Web.ViewModels.UserAddressFormModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Editar direccion</h2>
+    </div>
+</legend>
+
+@using (Html.BeginForm("Edit", "UserAddress"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        @Html.Partial("_Edit", Model)
+
+
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Editar</button>
+        @Html.ActionLink("Cancelar", "Index", "UserAddress", new { @class = "btn " })
+    </div>
+}

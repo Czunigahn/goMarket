@@ -1,0 +1,11 @@
+﻿@using FNHMVC.Web.Helpers;
+@model IEnumerable<FNHMVC.Model.UserAddress>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+
+<div id="divSaleList">
+    @Html.Partial("_UserAddressList", Model)
+</div>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<FNHMVC.Model.SaleImages>
+@{
+            //Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<div class="span6">
+    <div id="myCarousel" class="carousel slide">
+        @{var current = 0;
+            <ol class="carousel-indicators">
+                @foreach (var itemIndicator in Model)
+                {
+                    if (current == 0)
+                    {
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    }
+
+                    if (current > 0)
+                    {
+                    <li data-target="#myCarouse"@current data-slide-to="@current"></li>        
+                    }
+                }
+            </ol>
+            <br />
+            <div class="well">
+                <div class="carousel-inner">
+                    @{var index = 0;}
+                    @foreach (var item in Model)
+                    {
+                        var filePath = "";
+
+                        if (item.Url.Contains("http://") || item.Url.Contains("https://"))
+                        {
+                            filePath = item.Url;
+                        }
+                        else
+                        {
+                            filePath = "/Content/img/upload/" + System.IO.Path.GetFileName(item.Url);
+                        }
+                        if (index == 0)
+                        {
+                        <div class="item active">
+                            <img alt="" src="@filePath" class="img-rounded" height="400" width="380" />
+                        </div> 
+                        }
+
+                        if (index > 0)
+                        {
+                        <div class="item">
+                            <img alt="" src="@filePath" class="img-rounded" height="400" width="380" />
+                        </div>
+                        }
+                        index++;
+                    }
+                </div>
+            </div>     
+        }
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+</div>

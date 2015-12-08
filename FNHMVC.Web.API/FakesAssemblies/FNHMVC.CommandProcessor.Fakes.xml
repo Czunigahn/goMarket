@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FNHMVC.CommandProcessor.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandHandlerNotFoundException">
+            <summary>Shim type of FNHMVC.CommandProcessor.Command.CommandHandlerNotFoundException</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandHandlerNotFoundException.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandHandlerNotFoundException.#ctor(FNHMVC.CommandProcessor.Command.CommandHandlerNotFoundException)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandHandlerNotFoundException.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandHandlerNotFoundException.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandHandlerNotFoundException.Bind(System.Runtime.Serialization.ISerializable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandHandlerNotFoundException.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandHandlerNotFoundException.ConstructorType">
+            <summary>Sets the shim of CommandHandlerNotFoundException.CommandHandlerNotFoundException(Type type)</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandHandlerNotFoundException.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult">
+            <summary>Shim type of FNHMVC.CommandProcessor.Command.CommandResult</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.#ctor(FNHMVC.CommandProcessor.Command.CommandResult)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.Bind(FNHMVC.CommandProcessor.Command.ICommandResult)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.ConstructorBoolean">
+            <summary>Sets the shim of CommandResult.CommandResult(Boolean success)</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.SuccessGet">
+            <summary>Sets the shim of CommandResult.get_Success()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.SuccessSetBoolean">
+            <summary>Sets the shim of CommandResult.set_Success(Boolean value)</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.AllInstances.SuccessGet">
+            <summary>Sets the shim of CommandResult.get_Success()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResult.AllInstances.SuccessSetBoolean">
+            <summary>Sets the shim of CommandResult.set_Success(Boolean value)</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults">
+            <summary>Shim type of FNHMVC.CommandProcessor.Command.CommandResults</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.#ctor(FNHMVC.CommandProcessor.Command.CommandResults)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.Bind(FNHMVC.CommandProcessor.Command.ICommandResults)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.AddResultICommandResult">
+            <summary>Sets the shim of CommandResults.AddResult(ICommandResult result)</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.Constructor">
+            <summary>Sets the shim of CommandResults.CommandResults()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.ResultsGet">
+            <summary>Sets the shim of CommandResults.get_Results()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.SuccessGet">
+            <summary>Sets the shim of CommandResults.get_Success()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults._get_Successb__0ICommandResult">
+            <summary>Sets the shim of CommandResults.&lt;get_Success&gt;b__0(ICommandResult result)</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.AllInstances.AddResultICommandResult">
+            <summary>Sets the shim of CommandResults.AddResult(ICommandResult result)</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.AllInstances.ResultsGet">
+            <summary>Sets the shim of CommandResults.get_Results()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimCommandResults.AllInstances.SuccessGet">
+            <summary>Sets the shim of CommandResults.get_Success()</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.ShimValidationHandlerNotFoundException">
+            <summary>Shim type of FNHMVC.CommandProcessor.Command.ValidationHandlerNotFoundException</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimValidationHandlerNotFoundException.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimValidationHandlerNotFoundException.#ctor(FNHMVC.CommandProcessor.Command.ValidationHandlerNotFoundException)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimValidationHandlerNotFoundException.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimValidationHandlerNotFoundException.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.ShimValidationHandlerNotFoundException.Bind(System.Runtime.Serialization.ISerializable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimValidationHandlerNotFoundException.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.ShimValidationHandlerNotFoundException.ConstructorType">
+            <summary>Sets the shim of ValidationHandlerNotFoundException.ValidationHandlerNotFoundException(Type type)</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.ShimValidationHandlerNotFoundException.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException">
+            <summary>Stub type of FNHMVC.CommandProcessor.Command.CommandHandlerNotFoundException</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.#ctor(System.Type)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.AttachBackingFieldToHelpLink">
+            <summary>Attaches delegates to emulate StubCommandHandlerNotFoundException.HelpLink as a property with a backing field.</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.AttachBackingFieldToSource">
+            <summary>Attaches delegates to emulate StubCommandHandlerNotFoundException.Source as a property with a backing field.</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.DataGet">
+            <summary>Sets the stub of Exception.get_Data()</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.GetBaseException">
+            <summary>Sets the stub of Exception.GetBaseException()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.GetBaseException01">
+            <summary>Sets the stub of Exception.GetBaseException()</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>Sets the stub of Exception.GetObjectData(SerializationInfo info, StreamingContext context)</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.GetObjectDataSerializationInfoStreamingContext">
+            <summary>Sets the stub of Exception.GetObjectData(SerializationInfo info, StreamingContext context)</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.HelpLinkGet">
+            <summary>Sets the stub of Exception.get_HelpLink()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.HelpLinkSetString">
+            <summary>Sets the stub of Exception.set_HelpLink(String value)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.InitializeStub">
+            <summary>Initializes a new instance of type StubCommandHandlerNotFoundException</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.MessageGet">
+            <summary>Sets the stub of Exception.get_Message()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.SourceGet">
+            <summary>Sets the stub of Exception.get_Source()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.SourceSetString">
+            <summary>Sets the stub of Exception.set_Source(String value)</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.StackTraceGet">
+            <summary>Sets the stub of Exception.get_StackTrace()</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.ToString">
+            <summary>Sets the stub of Exception.ToString()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.ToString01">
+            <summary>Sets the stub of Exception.ToString()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.Data">
+            <summary>Sets the stub of Exception.get_Data()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.HelpLink">
+            <summary>Sets the stub of Exception.get_HelpLink()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.Message">
+            <summary>Sets the stub of Exception.get_Message()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.Source">
+            <summary>Sets the stub of Exception.get_Source()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandHandlerNotFoundException.StackTrace">
+            <summary>Sets the stub of Exception.get_StackTrace()</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResult">
+            <summary>Stub type of FNHMVC.CommandProcessor.Command.CommandResult</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResult.#ctor(System.Boolean)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResult.InitializeStub">
+            <summary>Initializes a new instance of type StubCommandResult</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResult.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResult.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResult.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResults">
+            <summary>Stub type of FNHMVC.CommandProcessor.Command.CommandResults</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResults.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResults.InitializeStub">
+            <summary>Initializes a new instance of type StubCommandResults</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResults.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResults.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubCommandResults.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.StubICommand">
+            <summary>Stub type of FNHMVC.CommandProcessor.Command.ICommand</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubICommand.#ctor">
+            <summary>Initializes a new instance of type StubICommand</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.StubICommandHandler`1">
+            <summary>Stub type of FNHMVC.CommandProcessor.Command.ICommandHandler`1</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubICommandHandler`1.#ctor">
+            <summary>Initializes a new instance of type StubICommandHandler</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubICommandHandler`1.ExecuteT0">
+            <summary>Sets the stub of ICommandHandler`1.Execute(!0 command)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubICommandHandler`1.fnhmvccp::FNHMVC#CommandProcessor#Command#ICommandHandler{TCommand}#Execute(`0)">
+            <summary>Sets the stub of ICommandHandler`1.Execute(!0 command)</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.StubICommandResult">
+            <summary>Stub type of FNHMVC.CommandProcessor.Command.ICommandResult</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubICommandResult.#ctor">
+            <summary>Initializes a new instance of type StubICommandResult</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubICommandResult.SuccessGet">
+            <summary>Sets the stub of ICommandResult.get_Success()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubICommandResult.fnhmvccp::FNHMVC#CommandProcessor#Command#ICommandResult#Success">
+            <summary>Sets the stub of ICommandResult.get_Success()</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.StubICommandResults">
+            <summary>Stub type of FNHMVC.CommandProcessor.Command.ICommandResults</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubICommandResults.#ctor">
+            <summary>Initializes a new instance of type StubICommandResults</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubICommandResults.ResultsGet">
+            <summary>Sets the stub of ICommandResults.get_Results()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubICommandResults.SuccessGet">
+            <summary>Sets the stub of ICommandResults.get_Success()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubICommandResults.fnhmvccp::FNHMVC#CommandProcessor#Command#ICommandResults#Results">
+            <summary>Sets the stub of ICommandResults.get_Results()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubICommandResults.fnhmvccp::FNHMVC#CommandProcessor#Command#ICommandResults#Success">
+            <summary>Sets the stub of ICommandResults.get_Success()</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.StubIValidationHandler`1">
+            <summary>Stub type of FNHMVC.CommandProcessor.Command.IValidationHandler`1</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubIValidationHandler`1.#ctor">
+            <summary>Initializes a new instance of type StubIValidationHandler</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubIValidationHandler`1.fnhmvccp::FNHMVC#CommandProcessor#Command#IValidationHandler{TCommand}#Validate(`0)">
+            <summary>Sets the stub of IValidationHandler`1.Validate(!0 command)</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubIValidationHandler`1.ValidateT0">
+            <summary>Sets the stub of IValidationHandler`1.Validate(!0 command)</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException">
+            <summary>Stub type of FNHMVC.CommandProcessor.Command.ValidationHandlerNotFoundException</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.#ctor(System.Type)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.AttachBackingFieldToHelpLink">
+            <summary>Attaches delegates to emulate StubValidationHandlerNotFoundException.HelpLink as a property with a backing field.</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.AttachBackingFieldToSource">
+            <summary>Attaches delegates to emulate StubValidationHandlerNotFoundException.Source as a property with a backing field.</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.DataGet">
+            <summary>Sets the stub of Exception.get_Data()</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.GetBaseException">
+            <summary>Sets the stub of Exception.GetBaseException()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.GetBaseException01">
+            <summary>Sets the stub of Exception.GetBaseException()</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>Sets the stub of Exception.GetObjectData(SerializationInfo info, StreamingContext context)</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.GetObjectDataSerializationInfoStreamingContext">
+            <summary>Sets the stub of Exception.GetObjectData(SerializationInfo info, StreamingContext context)</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.HelpLinkGet">
+            <summary>Sets the stub of Exception.get_HelpLink()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.HelpLinkSetString">
+            <summary>Sets the stub of Exception.set_HelpLink(String value)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.InitializeStub">
+            <summary>Initializes a new instance of type StubValidationHandlerNotFoundException</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.MessageGet">
+            <summary>Sets the stub of Exception.get_Message()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.SourceGet">
+            <summary>Sets the stub of Exception.get_Source()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.SourceSetString">
+            <summary>Sets the stub of Exception.set_Source(String value)</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.StackTraceGet">
+            <summary>Sets the stub of Exception.get_StackTrace()</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.ToString">
+            <summary>Sets the stub of Exception.ToString()</summary>
+        </member>
+        <member name="F:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.ToString01">
+            <summary>Sets the stub of Exception.ToString()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.Data">
+            <summary>Sets the stub of Exception.get_Data()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.HelpLink">
+            <summary>Sets the stub of Exception.get_HelpLink()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.Message">
+            <summary>Sets the stub of Exception.get_Message()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.Source">
+            <summary>Sets the stub of Exception.get_Source()</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Command.Fakes.StubValidationHandlerNotFoundException.StackTrace">
+            <summary>Sets the stub of Exception.get_StackTrace()</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus">
+            <summary>Shim type of FNHMVC.CommandProcessor.Dispatcher.DefaultCommandBus</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.#ctor(FNHMVC.CommandProcessor.Dispatcher.DefaultCommandBus)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.AsyncRunOf1ActionOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Action{``0}})">
+            <summary>Sets the shim of DefaultCommandBus.AsyncRun(Action`1&lt;!!0&gt; action)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.Bind(FNHMVC.CommandProcessor.Dispatcher.ICommandBus)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.SubmitOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,FNHMVC.CommandProcessor.Command.ICommandResult})">
+            <summary>Sets the shim of DefaultCommandBus.Submit(!!0 command)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.SubmitOf2M0M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,``1,FNHMVC.CommandProcessor.Command.ICommandResult})">
+            <summary>Sets the shim of DefaultCommandBus.Submit(!!0 command, !!1 commandHandler)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.ValidateOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.Collections.Generic.IEnumerable{FNHMVC.Core.Common.ValidationResult}})">
+            <summary>Sets the shim of DefaultCommandBus.Validate(!!0 command)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.ValidateOf2M0M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,``1,System.Collections.Generic.IEnumerable{FNHMVC.Core.Common.ValidationResult}})">
+            <summary>Sets the shim of DefaultCommandBus.Validate(!!0 command, !!1 validationHandler)</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.Constructor">
+            <summary>Sets the shim of DefaultCommandBus.DefaultCommandBus()</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.AllInstances.AsyncRunOf1ActionOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{FNHMVC.CommandProcessor.Dispatcher.DefaultCommandBus,System.Action{``0}})">
+            <summary>Sets the shim of DefaultCommandBus.AsyncRun(Action`1&lt;!!0&gt; action)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.AllInstances.SubmitOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{FNHMVC.CommandProcessor.Dispatcher.DefaultCommandBus,``0,FNHMVC.CommandProcessor.Command.ICommandResult})">
+            <summary>Sets the shim of DefaultCommandBus.Submit(!!0 command)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.AllInstances.SubmitOf2M0M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{FNHMVC.CommandProcessor.Dispatcher.DefaultCommandBus,``0,``1,FNHMVC.CommandProcessor.Command.ICommandResult})">
+            <summary>Sets the shim of DefaultCommandBus.Submit(!!0 command, !!1 commandHandler)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.AllInstances.ValidateOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{FNHMVC.CommandProcessor.Dispatcher.DefaultCommandBus,``0,System.Collections.Generic.IEnumerable{FNHMVC.Core.Common.ValidationResult}})">
+            <summary>Sets the shim of DefaultCommandBus.Validate(!!0 command)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.ShimDefaultCommandBus.AllInstances.ValidateOf2M0M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{FNHMVC.CommandProcessor.Dispatcher.DefaultCommandBus,``0,``1,System.Collections.Generic.IEnumerable{FNHMVC.Core.Common.ValidationResult}})">
+            <summary>Sets the shim of DefaultCommandBus.Validate(!!0 command, !!1 validationHandler)</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubDefaultCommandBus">
+            <summary>Stub type of FNHMVC.CommandProcessor.Dispatcher.DefaultCommandBus</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubDefaultCommandBus.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubDefaultCommandBus.InitializeStub">
+            <summary>Initializes a new instance of type StubDefaultCommandBus</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubDefaultCommandBus.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubDefaultCommandBus.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubDefaultCommandBus.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus">
+            <summary>Stub type of FNHMVC.CommandProcessor.Dispatcher.ICommandBus</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.#ctor">
+            <summary>Initializes a new instance of type StubICommandBus</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.AsyncRunOf1ActionOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{System.Action{``0}})">
+            <summary>Sets stubs of AsyncRun(Action`1&lt;!!0&gt; action)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.fnhmvccp::FNHMVC#CommandProcessor#Dispatcher#ICommandBus#AsyncRun``1(System.Action{``0})">
+            <summary>Sets the stub of ICommandBus.AsyncRun(Action`1&lt;!!0&gt; action)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.fnhmvccp::FNHMVC#CommandProcessor#Dispatcher#ICommandBus#Submit``1(``0)">
+            <summary>Sets the stub of ICommandBus.Submit(!!0 command)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.fnhmvccp::FNHMVC#CommandProcessor#Dispatcher#ICommandBus#Submit``2(``0,``1)">
+            <summary>Sets the stub of ICommandBus.Submit(!!0 command, !!1 commandHandler)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.fnhmvccp::FNHMVC#CommandProcessor#Dispatcher#ICommandBus#Validate``1(``0)">
+            <summary>Sets the stub of ICommandBus.Validate(!!0 command)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.fnhmvccp::FNHMVC#CommandProcessor#Dispatcher#ICommandBus#Validate``2(``0,``1)">
+            <summary>Sets the stub of ICommandBus.Validate(!!0 command, !!1 validationHandler)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.SubmitOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,FNHMVC.CommandProcessor.Command.ICommandResult})">
+            <summary>Sets stubs of Submit(!!0 command)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.SubmitOf2M0M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,``1,FNHMVC.CommandProcessor.Command.ICommandResult})">
+            <summary>Sets stubs of Submit(!!0 command, !!1 commandHandler)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.ValidateOf1M0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,System.Collections.Generic.IEnumerable{FNHMVC.Core.Common.ValidationResult}})">
+            <summary>Sets stubs of Validate(!!0 command)</summary>
+        </member>
+        <member name="M:FNHMVC.CommandProcessor.Dispatcher.Fakes.StubICommandBus.ValidateOf2M0M1``2(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{``0,``1,System.Collections.Generic.IEnumerable{FNHMVC.Core.Common.ValidationResult}})">
+            <summary>Sets stubs of Validate(!!0 command, !!1 validationHandler)</summary>
+        </member>
+    </members>
+</doc>

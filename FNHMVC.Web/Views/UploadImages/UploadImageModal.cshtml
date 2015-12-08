@@ -1,0 +1,202 @@
+﻿@model FancyImageUploader.Models.ImagesModel
+@{
+    ViewBag.Title = "Modal image uploader";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+@section Styles
+{
+    <link href="@Url.Content("~/Content/Modal.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/ImageArea.css")" rel="stylesheet" />
+}
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.imgareaselect.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.fancyupload.js")"></script>
+    <script>
+
+        $('#myTab a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        })
+
+        $(document).ready(function () {
+
+
+            $('.modal_block').click(function (e) {
+                $('#tn_select').empty();
+                $('.modal_part').hide();
+            });
+
+            $('#modal_link_pic').click(function (e) {
+                $('.modal_part').show();
+
+                var urlSale = '/UploadImages/UploadImage/@Model.Sale.SaleId/@Convert.ToInt32(FNHMVC.Web.Helpers.SaleImageType.Sale)'
+
+                var context = $('#tn_select').load(urlSale, function () {
+                    initSelect(context);
+                });
+                e.preventDefault();
+                return false;
+            });
+
+            $('#modal_link_banner').click(function (e) {
+                $('.modal_part').show();
+
+                var urlBanner = '/UploadImages/UploadImage/@Model.Sale.SaleId/@Convert.ToInt32(FNHMVC.Web.Helpers.SaleImageType.Banner)'
+
+                var context = $('#tn_select').load(urlBanner, function () {
+                    initSelect(context);
+                });
+                e.preventDefault();
+                return false;
+            });
+
+        });
+    </script>
+}
+
+<div class="modal_block modal_part"></div>
+<div class="modal_dialog modal_part" id="tn_select"></div>
+
+<legend>
+    <h2>Utiliza esta sección para editar las imagenes de tu publicación</h2>
+    <small>Publicación:@Model.Sale.Title - @Model.Sale.Description </small>
+    <small>en la categoria de @Model.Sale.Category.Name </small>
+</legend>
+@*@Html.ActionLink("Ir a mis publicaciones", "Index", "Sale", new { @class = "btn " })*@
+
+<ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#SalePictures">Publicación</a></li>
+    <li><a href="#SaleBanners">Banner</a></li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="SalePictures">
+
+        @if (Model.SaleImages.Count >= 10)
+        {
+            <pre>No puede subir mas de 10 imagenes, elimine algunas si desea actualizarlas.</pre>   
+        }
+
+        @if (Model.SaleImages.Count > 0 && Model.SaleImages.Count < 10)
+        {
+            <p><a href="#" id="modal_link_pic">Agregar otra imagen</a></p> 
+            
+        }
+
+        @if (Model.SaleImages.Count == 0)
+        {
+            <div class="imageCenter">
+                <p><a href="#" id="modal_link_pic">Aún no tienens ninguna imagen, clic para comenzar a subir</a></p>
+            </div>
+        }
+        <hr />
+
+        @foreach (var src in Model.SaleImages)
+        {
+            <div class="imageBox">
+                @{  
+            if (src.Url.Contains("http://") || src.Url.Contains("https://"))
+            {
+                    
+                    <p><a href="/SaleImages/Remove/@src.SaleImagesId" class="label" rel="tooltip" title="Eliminar"><i class="icon-remove"></i></a></p>
+                    <p><a href="/SaleImages/SetDefault/@src.SaleImagesId" class="label" rel="tooltip" title="Predeterminada"><i class="icon-th-large"></i></a></p>
+                    <a href="@Url.Content(src.Url)" target="_blank">
+                        <img src="@Url.Content(src.Url)" alt="" class="imagePreview" />
+                    </a>
+            }
+            else
+            {
+                    <p><a href="/SaleImages/Remove/@src.SaleImagesId" class="label" rel="tooltip" title="Eliminar"><i class="icon-remove"></i></a></p>
+                    <p><a href="/SaleImages/SetDefault/@src.SaleImagesId" class="label" rel="tooltip" title="Predeterminada"><i class="icon-th-large"></i></a></p>
+                var file = "~/Content/img/upload/" + System.IO.Path.GetFileName(src.Url);
+                    <a href="@Url.Content(file)" target="_blank">
+                        <img src="@Url.Content(file)" alt="" class="imagePreview" /></a>
+            }
+                    
+                }
+            </div>            
+        }
+
+    </div>
+    <div class="tab-pane" id="SaleBanners">
+        @if (Model.SaleImagesBanner.Count >= 10)
+        {
+            <pre>No puede subir mas de 10 banners, elimine algunos si desea actualizarlos.</pre>
+        }
+
+        @if (Model.SaleImagesBanner.Count > 0 && Model.SaleImagesBanner.Count < 10)
+        {
+            <a href="#" id="modal_link_banner">Agregar otro banner</a>
+        }
+
+        @if (Model.SaleImagesBanner.Count == 0)
+        {
+            <div class="imageCenter">
+                <p><a href="#" id="modal_link_banner">Aún no tienens ningun banner, clic para comenzar a subir</a></p>
+            </div>
+        }
+
+        @if (Model.SaleImagesBanner.Count(x => x.Activated) >= 5)
+        {
+            <br />
+            <div class="alert alert-block">                
+                <h4>Alerta!</h4>
+                Solamente puede mantener 5 banners activos, desactive algunos si deseas cambiarlos.
+            </div>
+        }
+        <hr />
+
+
+        @foreach (var src in Model.SaleImagesBanner)
+        {
+            <div class="imageBox">
+                @{
+            if (src.Url.Contains("http://") || src.Url.Contains("https://"))
+            {
+                    <p><a href="/SaleImages/Remove/@src.SaleImagesId" class="label" rel="tooltip" title="Eliminar"><i class="icon-remove"></i></a></p>
+                    <p><a href="/SaleImages/ActivateBanner/@src.SaleImagesId" class="label" rel="tooltip" title="@(src.Activated ? "No usar banner" : "Usar Banner")"><i class="@(src.Activated?"icon-picture":"icon-cog")"></i></a></p>
+
+                    <a href="@Url.Content(src.Url)" target="_blank">
+                        <img src="@Url.Content(src.Url)" alt="" class="imagePreview" /></a>
+            }
+            else
+            {
+                    
+                    <p><a href="/SaleImages/Remove/@src.SaleImagesId" class="label" rel="tooltip" title="Eliminar"><i class="icon-remove"></i></a></p>
+                    <p><a href="/SaleImages/ActivateBanner/@src.SaleImagesId" class="label" rel="tooltip" title="@(src.Activated ? "No usar banner" : "Usar Banner")"><i class="@(src.Activated?"icon-picture":"icon-cog")"></i></a></p>
+
+                
+                var file = "~/Content/img/upload/" + System.IO.Path.GetFileName(src.Url);
+                    <a href="@Url.Content(file)" target="_blank">
+                        <img src="@Url.Content(file)" alt="" class="imagePreview" /></a>
+            }
+                }
+            </div>
+        }
+
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("[rel='tooltip']").tooltip();
+
+        $('#hover-cap-4col .thumbnail').hover(
+            function () {
+                $(this).find('.caption').slideDown(250); //.fadeIn(250)
+            },
+            function () {
+                $(this).find('.caption').slideUp(250); //.fadeOut(205)
+            }
+        );
+
+    });
+</script>

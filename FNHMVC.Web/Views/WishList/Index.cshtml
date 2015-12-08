@@ -1,0 +1,80 @@
+﻿@model IEnumerable<FNHMVC.Model.UserWishList>
+@{
+     Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Mis deseos</h2>
+    </div>
+</legend>
+
+
+<div class="well">
+    <div class="container" style="width: auto;">
+        <table class="table table-hover-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th></th>
+                    <th>Titulo</th>
+                    <th>Descripción</th>
+                    <th>Categoria</th>
+                    <th>Vendedor</th>
+                    <th>Precio</th>
+                    <th>Agregado</th>
+                    <th>En Oferta?</th>
+                    <th>En venta?</th>
+                    <th title="Cambiar" style="width: 36px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{var index = 0;}
+                @foreach (var p in Model)
+                {
+                    index++;
+
+                    <tr>
+                        <td>@index.ToString()</td>
+                        <td>
+
+                            <div style="width: 141px; height: 176px; overflow: hidden">
+                                <img src="@p.Sale.Picture" width="150" height="176">
+                            </div>
+
+                        </td>
+                        <td>@p.Sale.Title</td>
+                        <td>@p.Sale.Description</td>
+                        <td>@p.Sale.Category.Name</td>
+                        <td>@p.Sale.User.FullName</td>
+                        <td>@Decimal.Round(p.Sale.Cost, 2, MidpointRounding.AwayFromZero)</td>
+                        <td>@p.DateCreate.ToShortDateString() @p.DateCreate.ToShortTimeString()</td>
+                        @if (p.Sale.HasDeal)
+                        { <td>Si</td> }
+                        @if (!p.Sale.HasDeal)
+                        {
+                            <td>No</td>
+                        }
+
+                        @if (p.Sale.Activated && p.Sale.ActiveForSales)
+                        { <td>Si</td> }
+                        @if (!p.Sale.Activated || !p.Sale.ActiveForSales)
+                        {
+                            <td>No</td>
+                        }
+
+                        @*<a href="/Sale/ViewSale/@p.Sale.SaleId" class="btn" id="btnViewSale"><i class="icon-picture"></i><strong>Ver</strong></a>*@
+
+                        <td>
+                            @Html.ActionLink(" ", "ViewSale", "Sale", new { id = p.Sale.SaleId }, new { @class = "icon-picture" })
+                            @Html.ActionLink(" ", "Delete", "WishList", new { id = p.UserWishListId }, new { @class = "icon-remove-sign" })
+                            
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FNHMVC.Model.Transaction>
+@{
+        //Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Ventas Efectuadas</h2>
+    </div>
+</legend>
+
+<p>
+    @Html.ActionLink("Perfil", "MyAccount", "Account")
+</p>
+
+<div class="well">
+    <div class="container" style="width: auto;">
+        <table class="table table-hover-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Articulo</th>
+                    <th>Cliente</th>
+                    <th>Cantidad</th>
+                    <th>Precio Total</th>
+                    <th>Fecha Vendido</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{var index = 0;}
+                @foreach (var p in Model)
+                {
+                    index++;
+
+                    <tr>
+                        <td>@index.ToString()</td>
+                        <td>@Html.ActionLink(p.Sale.Title,"ViewSale",new { id = p.Sale.SaleId})</td>
+                        <td><a href="/Home/UserProfile/@p.Buyer.UserId">@p.Buyer.FullName</a></td>
+                        <td>@p.Quantity</td>
+                        <td>@(p.TotalPrice)</td>
+                        <td>@p.Created.ToShortDateString()  @p.Created.ToShortTimeString() </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

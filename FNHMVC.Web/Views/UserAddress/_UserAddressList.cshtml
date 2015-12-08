@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FNHMVC.Model.UserAddress>
+@{
+    //ViewBag.Title = "_UserAddressList";
+}
+<legend>
+    <div style="text-align: center;">
+        <h2>Mis direcciones</h2>
+    </div>
+</legend>
+
+<p>
+    @Html.ActionLink("Perfil", "MyAccount", "Account")
+    @Html.ActionLink("Agregar dirección", "Create")
+</p>
+
+<div class="well">
+    <div class="container" style="width: auto;">
+        <table class="table table-hover-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Direccion Linea 1</th>
+                    <th>Ciudad</th>
+                    <th>Estado</th>
+                    <th>Codigo Postal</th>
+                    <th>Pais</th>
+                    <th>Numero Telefono</th>
+                    <th>Activa</th>
+
+                    <th title="Cambiar" style="width: 36px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{var index = 0;}
+                @foreach (var p in Model)
+                {
+                    index++;
+
+                    <tr>
+                        <td>@index.ToString()</td>
+
+                        <td>@p.FullName</td>
+                        <td>@p.AddressLine1</td>
+                        <td>@p.City</td>
+                        <td>@p.State</td>
+                        <td>@p.ZipCode</td>
+                        <td>@p.Country</td>
+                        <td>@p.PhoneNumber</td>
+
+                        @if (p.Activated)
+                        { <td>Si</td> }
+                        @if (!p.Activated)
+                        { <td>No</td> }
+                        <td>
+                            @Html.ActionLink(" ", "Edit", "UserAddress", new { id = p.UserAddressId }, new { @class = "icon-edit" })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+    
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Menu de administración</h2>
+    </div>
+</legend>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+
+
+                    <li class="nav-header">General</li>
+                    <li>@Html.ActionLink("Categorias", "Index", "Category")  </li>
+
+                    <li class="nav-header">Relacionados al usuario</li>
+                    <li>@Html.ActionLink("Control de usuarios", "UserControl", "Admin")  </li>
+                    <li>@Html.ActionLink("Aprobaciones Pendientes", "PendingChange", "Admin")  </li>
+                    <li>@Html.ActionLink("Aproba productos destacados", "SpotlightApprove", "Admin")  </li>
+                    @*<li>@Html.ActionLink("Denuncias", "Reports", "Admin")  </li>*@
+                    <li class="nav-header">Denuncias</li>
+                    <li>@Html.ActionLink("Control de usuarios denunciados", "UserDenounceControl", "Admin")  </li>
+                     <li>@Html.ActionLink("Control de ventas denunciadas", "SaleDenounceControl", "Admin")  </li>
+
+              @*      <li class="nav-header">Relacionados al sitio</li>
+                    <li>@Html.ActionLink("Sugerencias", "FeedBack", "Feedback")  </li>
+                    <li>@Html.ActionLink("Anuncios", "Addons", "Feedback")  </li>
+                    <li>@Html.ActionLink("Contactos", "Contact", "Feedback")  </li>*@
+
+
+                </ul>
+            </div>
+            <!--/.well -->
+        </div>
+        <!--/span-->
+
+    </div>
+
+
+</div>

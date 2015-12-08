@@ -1,0 +1,34 @@
+﻿@using BootstrapSupport
+@model Object
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="form-horizontal">
+        <legend>¿Desea eliminar el mensaje?</legend>
+        @foreach (var property in Model.VisibleProperties())
+        {
+            if (@property.Name.ToLower().Contains("userinboxid") ||
+                @property.Name.ToLower().Contains("subject") ||
+                @property.Name.ToLower().Contains("message"))
+            {
+                using (Html.ControlGroupFor(property.Name))
+                {
+                @Html.Label(property.Name.ToSeparatedWords(), new { @class = "control-label" })
+                 <div class="controls">
+                     @Html.Display(property.Name)
+                     @Html.Hidden(property.Name)
+                 </div>
+                }
+            }
+        }
+		<div class="form-actions">
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+            @Html.ActionLink("Cancelar", "Inbox", "Account", new { @class = "btn " })
+          </div>
+    </fieldset>
+}
+

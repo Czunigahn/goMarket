@@ -1,0 +1,37 @@
+﻿@model FNHMVC.Web.Models.Paypal
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    <form id="frm" action=@ViewBag.actionURL>
+    @Html.HiddenFor(model => model.cmd)
+    @Html.HiddenFor(model => model.business)
+    @Html.HiddenFor(model => model.no_shipping)
+    @Html.HiddenFor(model => model.@return)
+    @Html.HiddenFor(model => model.cancel_return)
+    @Html.HiddenFor(model => model.notify_url)
+    @Html.HiddenFor(model => model.currency_code)
+    @Html.HiddenFor(model => model.item_name)
+    @Html.HiddenFor(model => model.amount)
+    </form>
+    <p style="text-align: center">
+        <h4>
+            Redirecting to Paypal...</h4>
+    </p>
+</body>
+</html>
+<script type="text/javascript" language="javascript">
+    $(this.document).ready(function () {
+        var frm = $("form");
+        frm.submit();
+    });   
+</script>
+
+<script type="text/javascript" src="https://s3.amazonaws.com/appfail-us/appfail.reporting.min.js?slug=7e435ee1-9f15-41ed-8796-a345550f5a67"></script>
+

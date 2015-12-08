@@ -1,0 +1,9 @@
+﻿@model IEnumerable<FNHMVC.Model.User>
+
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<div id="divCategoryList">
+    @Html.Partial("_UserList", Model)
+</div>

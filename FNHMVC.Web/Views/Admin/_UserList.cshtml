@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FNHMVC.Model.User>
+@{
+   // Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Control de usuarios</h2>
+    </div>
+</legend>
+
+<p>
+    @Html.ActionLink("Administración", "Menu", "Admin")
+</p>
+
+<div class="well">
+    <div class="container" style="width: auto;">
+    <table class="table table-hover-bordered table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Correo</th>
+                <th>Activo</th>
+                <th>Bloqueado</th>
+
+                <th title="Cambiar" style="width: 36px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @{var index = 0;}
+            @foreach (var p in Model)
+            {
+                index++;
+
+                <tr>
+                    <td>@index.ToString()</td>
+
+                    <td>@p.FirstName</td>
+                    <td>@p.LastName</td>
+                    <td>@p.Email</td>
+
+                    @if (p.Activated)
+                    { <td>Si</td> }
+                    @if (!p.Activated)
+                    { <td>No</td> }
+
+                    @if (p.Locked)
+                    { <td>Si</td> }
+
+                    @if (!p.Locked)
+                    { <td>No</td> }
+
+                    <td>
+                        @Html.ActionLink(" ", "DisableUser", "Admin", new { id = p.UserId }, new { @class = "icon-lock" })
+                        @Html.ActionLink(" ", "DeleteUser", "Admin", new { id = p.UserId }, new { @class = "icon-remove-sign" })
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+        </div>
+</div>

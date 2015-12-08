@@ -1,0 +1,97 @@
+﻿@model FancyImageUploader.Models.UploadImageModel
+@{
+    ViewBag.Title = "Image uploader";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<h2>Agregar imagen</h2>
+
+@section Styles
+{
+    <link href="@Url.Content("~/Content/Modal.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/ImageArea.css")" rel="stylesheet" />
+}
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.imgareaselect.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.fancyupload.js")"></script>
+    <script>
+        $(document).ready(function () {
+            initSelect();
+        });
+
+        $(document).ready(function () {
+            $('.modal_block').click(function (e) {
+                $('#tn_select').empty();
+                $('.modal_part').hide();
+            });
+            $('#modal_link').click(function (e) {
+                $('.modal_part').show();
+                var context = $('#tn_select').load('/UploadImages/UploadImage/@Model.SaleId/@Model.SaleImageType', function () {
+                initSelect(context);
+            });
+            e.preventDefault();
+            return false;
+        });
+    });
+
+    </script>
+}
+
+@using (Html.BeginForm("UploadImage", "UploadImages", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(model => model.X)
+    @Html.HiddenFor(model => model.Y)
+    @Html.HiddenFor(model => model.Width)
+    @Html.HiddenFor(model => model.Height)
+    @Html.HiddenFor(model => model.Flickr)
+    @Html.HiddenFor(Model => Model.SaleId)
+    @Html.HiddenFor(Model => Model.SaleImageType)
+
+    <div class="clear">
+        <button type="submit" class="btn btn-success">Subir</button>
+    </div>
+    <br />
+    <hr />
+    <div id="upload-choices">
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.EditorFor(model => model.IsUrl)
+                @Html.LabelFor(model => model.Url)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Url, new { @class = "input-xxlarge" })
+                @Html.ValidationMessageFor(model => model.Url)
+            </div>
+        </div>
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.EditorFor(model => model.IsFlickr)
+                @Html.LabelFor(model => model.Flickr)
+            </div>
+            <div class="editor-field">
+                @Html.Editor("FlickrQuery")
+                @Html.ValidationMessageFor(model => model.Flickr)
+            </div>
+        </div>
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.EditorFor(model => model.IsFile)
+                @Html.LabelFor(model => model.File)
+            </div>
+            <div class="editor-field">
+                @Html.FileFor(model => model.File)
+                @Html.ValidationMessageFor(model => model.File)
+            </div>
+        </div>
+        <div class="editor-row">
+            @Html.ValidationSummary(true)
+        </div>
+    </div>
+    <div id="upload-cut">
+        <img alt="Ajustar imagen" id="preview" src="@Url.Content("~/Content/empty.png")" />
+    </div>
+
+}

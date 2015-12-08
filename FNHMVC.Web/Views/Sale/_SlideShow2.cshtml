@@ -1,0 +1,146 @@
+﻿<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+    <script src="~/Scripts/jquery.js" type="text/javascript"></script>
+    <script src="~/Scripts/jmorph.js" type="text/javascript"></script>
+    <style>     
+
+        a
+        {
+            font-size: 1.1em;
+            color: #003666;
+            text-decoration: none;
+        }
+
+            a:hover
+            {
+                color: #0063DC;
+            }
+
+        #container
+        {
+            background: #fff;
+            position: relative;
+            /*text-align: center;*/
+        }
+
+        .clearfix:after
+        {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix
+        {
+            display: inline-block;
+        }
+        /* for IE/Mac */
+        .jmorph
+        {
+            width: 640px;
+            margin: auto 0px;
+        }
+
+            .jmorph .imageContainer
+            {
+                display: table;
+            }
+
+            .jmorph .image
+            {
+                background: #ccc;
+                padding: 10px;
+                display: table-cell;
+            }
+
+                .jmorph .image .currentImg, .jmorph .image .nextImg
+                {
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    position: relative;
+                }
+
+                .jmorph .image .nextImg
+                {
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                }
+
+            .jmorph div a.previous, .jmorph div a.next
+            {
+                padding: 0.5em;
+                margin: 1em;
+                float: left;
+            }
+
+            .jmorph .image a.previous, .jmorph .image a.next
+            {
+                font-size: 1.5em;
+            }
+
+            .jmorph ul.band
+            {
+                padding: 5px;
+                list-style: none;
+                background: #ddd;
+                width: 5000px;
+                margin-left: 0px;
+            }
+
+        .bandContainer
+        {
+            width: 300px;
+            overflow: hidden;
+            float: left;
+            /*text-align: left;*/
+        }
+
+        .jmorph ul.band li
+        {
+            display: inline;
+            margin: 5px;
+            padding: 5px;
+        }
+
+            .jmorph ul.band li.selected
+            {
+                background: #fff;
+            }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+        <div class="jmorph">
+            <div class="imageContainer">
+                <div class="image">
+                    <div class="currentImg" style>
+                        <div class="nextImg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <a href="#previous" class="previous">&lt;&nbsp;Anterior</a>
+                <div class="bandContainer">
+                    <ul class="band">
+                        <li><a href="~/Images/1.jpg"></a>Imagen 1</li>
+                        <li><a href="~/Images/2.jpg"></a>Imagen 2</li>
+                        <li><a href="~/Images/3.jpg"></a>Imagen 3</li>
+                        <li><a href="~/Images/4.jpg"></a>Imagen 4</li>
+                        <li><a href="~/Images/5.jpg"></a>Imagen 5</li>
+                    </ul>
+                </div>
+                <a href="#next" class="next">Siguiente&nbsp;&gt;</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".jmorph").jmorphGallery();
+</script>
+</body>
+</html>

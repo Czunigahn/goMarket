@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Opps... 404 Not Found</title>
+<link rel="stylesheet" type="text/css" media="all" href="http://www.popscreen.com/css/stylesheet.php?p=server_errors/server_errors.css" />
+
+<script src="http://www.popscreen.com/js/global/jquery/jquery.js" language="javascript"></script>
+<script src="http://www.popscreen.com/js/global/jquery/jq_ajax.js" language="javascript"></script>
+<script src="../../../../../../stats/organic/?js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<div id="green-error-box">
+
+	<a href="http://gomarket.apphb.com"><img class="error-image" src="http://www.popscreen.com/images/server_errors/tv_404.jpg" width="325" height="335" alt="Uh oh! Page not found!" /></a>
+	<h1 id="page-not-found" class="heading"> Pivma - Uh oh! Página no encontrada!</h1>	
+	<h2>Lo sentimos, ha pagina que haz solicitado no existe.</h2>
+
+	</ul>
+	<form id="search-box"  action="" method="get"  >
+        <center>
+		@*<p>Vuelve a nuestra pagina de inicio</p>*@
+            <p>
+            @Html.ActionLink("Vuelve a nuestra página de inicio","Index", "Home")
+                </p>
+            </center>
+        @*<input type="text" id="q" name="q" />*@
+        @*<a href="#"  id="topSearchOptions" class="button-base button-black_orange_greenbg" onclick="jQuery('#search-box').submit();"><span>Search</span></a>*@
+</form>
+	
+	
+	
+</div>
+
+<script src="../../../../../../js/global/ajaxfileupload.js" language="javascript"></script>
+<script src="../../../../../../stats/organic/?js" type="text/javascript"></script>
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-65-BgTBQ7KNwg"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-65-BgTBQ7KNwg.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+<script type="text/javascript">
+var _sf_async_config={uid:38000,domain:"popscreen.com"};
+(function(){
+  function loadChartbeat() {
+    window._sf_endpt=(new Date()).getTime();
+    var e = document.createElement('script');
+    e.setAttribute('language', 'javascript');
+    e.setAttribute('type', 'text/javascript');
+    e.setAttribute('src',
+       (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+       "js/chartbeat.js");
+    document.body.appendChild(e);
+  }
+  var oldonload = window.onload;
+  window.onload = (typeof window.onload != 'function') ?
+     loadChartbeat : function() { oldonload(); loadChartbeat(); };
+})();
+
+</script>
+<script src="../../../../../../stats/404/?js" type="text/javascript"></script>
+</body>
+</html>
+

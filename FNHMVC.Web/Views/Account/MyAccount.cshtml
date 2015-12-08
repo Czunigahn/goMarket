@@ -1,0 +1,53 @@
+﻿@model dynamic
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+ }
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Administración del perfil</h2>
+    </div>
+</legend>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+
+                    <li class="nav-header">Cuenta</li>
+                    <li><a @Html.ActionLink("Mi perfil", "UserProfile", "Home") </a></li>
+                    <li><a @Html.ActionLink("Actualizar cuenta", "MyProfile", "Account") </a></li>
+                    <li><a @Html.ActionLink("Cambiar clave", "changePassword", "Account") </a></li>
+                    <li><a @Html.ActionLink("Lista de Deseos", "Index", "WishList") </a></li>
+                    <li><a @Html.ActionLink("Lista de Direcciones", "Index", "UserAddress") </a></li>
+                    <li><a @Html.ActionLink("Carrito de compras", "Index", "Cart") </a></li>
+
+
+                    <li class="nav-header">Clientes</li>
+                    
+                    <li><a @Html.ActionLink("Correo", "Inbox", "Account") </a></li>
+                    <li><a @Html.ActionLink("Suscriptores", "Followers", "Account") </a></li>
+                    
+
+                    <li class="nav-header">Publicaciones</li>                                       
+                    <li><a @Html.ActionLink("Publicaciones", "Index", "Sale") </a></li>
+                    <li><a @Html.ActionLink("Cambios pendientes", "PendingChange", "Sale") </a></li>
+                    <li><a @Html.ActionLink("Ofertas", "Deals", "Sale") </a></li>
+                    <li><a @Html.ActionLink("Cupones", "Cupons", "Account") </a></li>
+                    <li><a @Html.ActionLink("Ventas", "Sold", "Sale") </a></li>
+                    <li><a @Html.ActionLink("Compras", "Purchased", "Sale") </a></li>
+                    
+                     
+                    
+                </ul>
+            </div>
+            <!--/.well -->
+        </div>
+        <!--/span-->
+
+    </div>
+
+
+</div>
+

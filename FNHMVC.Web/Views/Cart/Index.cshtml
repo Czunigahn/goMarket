@@ -1,0 +1,103 @@
+﻿@model IEnumerable<FNHMVC.Model.Cart>
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+<link href="@Styles.Url("~/content/tablecloth.css")" rel="stylesheet"/>
+<script type="text/javascript" charset="utf-8">
+
+
+    $(document).ready(function () {
+        $("table#myTable").tablesorter();
+    }
+);
+</script>
+
+
+
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Carrito de compras</h2>
+    </div>
+</legend>
+
+@Html.ActionLink("Pagar con Paypal", "PayPayPal")
+    @Html.ActionLink("Eliminar todos los objetos", "DeleteCart")
+
+    <div class="well">
+        <div class="container" style="width: auto;">
+            <table id="myTable" class="table table-hover-bordered table-striped" >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Titulo</th>
+                        <th>Descripción</th>
+                        <th>Categoria</th>
+                        <th>Costo</th>
+                        <th>Disponible</th>
+                        <th>Cantidad en Carrito</th>
+                        <th>Tiene cambios?</th>
+                        <th>Aplica cupón?</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @{var index = 0;}
+                    @foreach (var p in Model)
+                    {
+                        index++;
+
+                        <tr>
+                            <td>@index.ToString()</td>
+                            
+                            
+                            <td>@p.Sale.Title</td>
+                            <td>@p.Sale.Description</td>
+                            <td>@p.Sale.Category.Name</td>
+                            <td>@p.Sale.Cost</td>
+                            <td>@p.Sale.Quantity</td>
+                            <td>@p.Quantity</td>
+                            @if(p.Created.CompareTo(p.Sale.Modified) < 0)
+                            {
+                                if (p.Quantity > p.Sale.Quantity)
+                                {
+                                <td>Modificado!, Este articulo no tiene la cantidad que usted habia solicitado. </td>
+                                }
+                                else
+                                {
+                                <td>Modificado!, Revisa los cambios en la venta @Ajax.ActionLink("Ver", "ViewSale", "Sale", new { id = p.Sale.SaleId }, new AjaxOptions { HttpMethod = "Get" })</td>
+                                }
+
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                            @if(p.Cupon==null)
+                            {
+                                <td>No</td>
+                            }
+                            else
+                            {
+                                <td>Si, menos @(p.Cupon.Discount*100)%</td>
+                            }
+                            
+                            <td>
+                                @Ajax.ActionLink("Eliminar", "Delete", new { id = p.CartId }, new AjaxOptions { Confirm = "Eliminar del carrito?", HttpMethod = "Post", UpdateTargetId = "divSaleList" })
+                            </td>
+                            
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+@if (!ViewBag.hasCoupon&&Model.Any())
+    {
+        <p>Agregar un cupón</p>
+         @Html.Partial("CouponAdd", new FNHMVC.Web.ViewModels.CuponAddFormModel())
+    }
+
+
+<script type="text/javascript" src="https://s3.amazonaws.com/appfail-us/appfail.reporting.min.js?slug=7e435ee1-9f15-41ed-8796-a345550f5a67"></script>

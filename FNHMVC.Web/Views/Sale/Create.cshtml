@@ -1,0 +1,32 @@
+﻿@model FNHMVC.Web.ViewModels.SaleFormModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Nueva publicación</h2>
+    </div>
+</legend>
+
+
+@*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>*@
+
+@using (Html.BeginForm("Save", "Sale"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        @Html.Partial("_Create", Model)
+
+    </fieldset>@*
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Crear</button>
+        @Html.ActionLink("Cancelar", "Index", "Sale", new { @class = "btn " })
+    </div>*@
+}
+
+

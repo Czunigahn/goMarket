@@ -1,0 +1,71 @@
+﻿@using BootstrapSupport
+@model FNHMVC.Web.ViewModels.DealsFormModel
+
+@{
+    //ViewBag.Title = "title";
+    //Layout = "_Layout";
+}
+
+<div class="well span8">
+    <div class="container" style="width: auto;">
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.SaleId)
+        </div>
+        
+        
+            @foreach (var property in Model.VisibleProperties())
+            {
+                if (@property.Name.ToLower().Equals("title") || 
+                    @property.Name.ToLower().Equals("description") ||
+                @property.Name.ToLower().Equals("cost"))
+                {
+                    using (Html.ControlGroupFor(property.Name))
+                    {
+                        @Html.Label(property.Name.ToSeparatedWords(), new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.Display(property.Name)
+                            @Html.Hidden(property.Name)
+                        </div>
+                    }
+                }
+            }
+        
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DescriptionDeal)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DescriptionDeal)
+            @Html.ValidationMessageFor(model => model.DescriptionDeal)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CostDeal)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CostDeal)
+            @Html.ValidationMessageFor(model => model.CostDeal)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateFromDeal)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateFromDeal)
+            @Html.ValidationMessageFor(model => model.DateFromDeal)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateToDeal)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateToDeal)
+            @Html.ValidationMessageFor(model => model.DateToDeal)
+        </div>
+ 
+    </div>
+</div>

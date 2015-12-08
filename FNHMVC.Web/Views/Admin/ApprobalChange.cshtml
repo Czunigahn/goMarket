@@ -1,0 +1,144 @@
+﻿@model  FNHMVC.Model.Sale
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Cambio en la publicación</h2>
+        <small>Comparando con los ultimos cambios</small>
+    </div>
+</legend>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+@{var LastChange = Model.SalePendingChange.Where(x=> x.Activated).OrderByDescending(x => x.SalePendingChangeId).First();}
+
+@using (Html.BeginForm("ApprobalChange", "Admin"))
+{    
+    <div class="well span8">
+        <div class="container" style="width: auto;">
+
+            <legend>
+                <div style="text-align: center;">
+                    <small>Publicación Pendiente</small>
+                </div>
+            </legend>
+
+            <label>Titulo</label>
+            <input type="text" value="@LastChange.Title" class="input-xxlarge">
+
+
+            <label>Descripción</label>
+            <input type="text" value="@LastChange.Description" class="input-xxlarge">
+
+            <label>Precio</label>
+            <input type="text" value="@LastChange.Cost" class="input-small">
+
+
+            <label>Inventario</label>
+            <input type="text" value="@LastChange.Quantity" class="input-small">
+
+
+
+            <label>Imagen</label>
+            <input type="text" value="@LastChange.Picture" class="input-xxlarge">
+
+
+            <label>Enlace YouTube</label>
+            <input type="text" value="@LastChange.YouTubeLink" class="input-xxlarge">
+
+
+            <label>Categoria</label>
+            <input type="text" value="@LastChange.Category.Name" class="input-xxlarge">
+        </div>
+    </div>@*
+
+        <hr />
+
+        <legend>
+            <div style="text-align: center;">
+                <small>Publicación actual</small>
+            </div>
+        </legend>*@
+
+    <fieldset>
+
+        <div class="well span8">
+            <div class="container" style="width: auto;">
+                @Html.HiddenFor(m => m.SaleId)
+                @Html.HiddenFor(m => m.Activated)
+                @Html.HiddenFor(m => m.ActiveForSales)
+                @Html.HiddenFor(m => m.Category)
+                @Html.HiddenFor(m => m.Created)
+                @Html.HiddenFor(m => m.Modified)
+                @Html.HiddenFor(m => m.PendingChange)
+                @Html.HiddenFor(m => m.SalePendingChange)
+                @Html.HiddenFor(m => m.User)
+                @Html.HiddenFor(m => m.UserReviews)
+
+
+                <legend>
+                    <div style="text-align: center;">
+                        <small>Publicación Actual</small>
+                    </div>
+                </legend>
+
+                <label>Titulo</label>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.Title, new { @class = "input-xxlarge", @placeholder = "" })
+                    @Html.ValidationMessageFor(m => m.Title)
+                </div>
+
+               <label>Descripción</label>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.Description, new { @class = "input-xxlarge", @placeholder = "" })
+                    @Html.ValidationMessageFor(m => m.Description)
+                </div>
+
+
+                <label>Precio</label>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.Cost, new { @class = "input-small", @placeholder = "" })
+                    @Html.ValidationMessageFor(m => m.Cost)
+                </div>
+
+               <label>Inventario</label>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.Quantity, new { @class = "input-small", @placeholder = "" })
+                    @Html.ValidationMessageFor(m => m.Quantity)
+                </div>
+
+
+                <label>Imagen</label>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.Picture, new { @class = "input-xxlarge", @placeholder = "" })
+                    @Html.ValidationMessageFor(m => m.Picture)
+                </div>
+
+                <label>Enlace YouTube</label>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.YouTubeLink, new { @class = "input-xxlarge", @placeholder = "" })
+                    @Html.ValidationMessageFor(m => m.YouTubeLink)
+                </div>
+
+               <label>Categoria</label>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.Category.Name, new { @class = "input-xxlarge", @placeholder = "" })
+                    @Html.ValidationMessageFor(m => m.Category.Name)
+                </div>
+
+            </div>
+        </div>
+
+    </fieldset>
+   
+    
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Aprobar</button>
+        @Html.ActionLink("Cancelar", "PendingChange", "Admin", new { @class = "btn " })
+    </div>
+}

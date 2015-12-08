@@ -1,0 +1,27 @@
+﻿@using BootstrapSupport
+@model FNHMVC.Web.ViewModels.UserAddressFormModel
+@{
+    ViewBag.Title = "CreateDeals";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Crear nueva dirección</h2>
+    </div>
+</legend>
+
+@using (Html.BeginForm("Create", "UserAddress"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        @Html.Partial("_Create", Model)
+
+
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Crear</button>
+        @Html.ActionLink("Cancelar", "Index", "UserAddress", new { @class = "btn " })
+    </div>
+}

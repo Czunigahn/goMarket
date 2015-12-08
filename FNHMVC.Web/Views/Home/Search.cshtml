@@ -1,0 +1,92 @@
+﻿@model FNHMVC.Web.ViewModels.SearchFormModel
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+<link href="@Styles.Url("~/content/goMarketStyle.css")" rel="stylesheet"/>
+<div class="container-fluid">
+
+    <div class="row-fluid">
+        @*Sidebar*@
+        <div class="span3">
+            <div class="well">
+                <div class="nav nav-list">
+                    <div class="nav-header">Busqueda Avanzada</div>
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+                    {
+                        @Html.LabelFor(model => model.GeneralFilter)
+                        @Html.EditorFor(model => model.GeneralFilter)
+                        @Html.Label("Rango precio ($)")
+
+                        @Html.LabelFor(model => model.StartPrice) @Html.EditorFor(model => model.StartPrice, new { @class = "span4" })
+                        @Html.LabelFor(model => model.EndPrice)@Html.EditorFor(model => model.EndPrice, new { @class = "span4" })
+                        @Html.ValidationMessageFor(model => model.StartPrice)<br />
+                        @Html.ValidationMessageFor(model => model.EndPrice)<br />
+
+                        @Html.Label("Rango buenas ofertas")
+                        @Html.EditorFor(model => model.StartGoodDeal, new { @class = "span4" })@Html.EditorFor(model => model.EndGoodDeal, new { @class = "span4" })
+                        
+                        @Html.ValidationMessageFor(model => model.StartGoodDeal)<br />
+                        @Html.ValidationMessageFor(model => model.EndGoodDeal)<br />
+                        
+                        @Html.Label("Rango fecha")
+                        @Html.EditorFor(model => model.StartDate, new { @class = "span4" })@Html.EditorFor(model => model.EndDate, new { @class = "span4" })
+                        
+                         @Html.ValidationMessageFor(model => model.StartDate)<br />
+                        @Html.ValidationMessageFor(model => model.EndDate)<br />
+
+                            @Html.HiddenFor(model => model.AdvanceSearch)
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    }
+
+                </div>
+            </div>
+            <!--/.well -->
+        </div>
+        <!--/span-->
+
+        @*Contenido*@
+        <div class="span9 box">
+            <ul class="thumbnails " id="container-thumbnails">
+                @foreach (var item in ViewBag.sales)
+                {
+                    <!--Item-->
+                    <li class="span3">
+                        <div class="thumbnail @if (item.Spotlight && item.SpotlightApprove)
+                                              {
+                                                  var x = "Spotlight"; 
+                                                      @x
+                                              } ">
+                            <div class="caption @if (item.HasDeal && (item.DateFromDeal <= DateTime.Today && item.DateToDeal >= DateTime.Today))
+                                                {
+                                                    var x = "Deal"; 
+                                                        @x
+                                                }">
+                                <h4>@item.Title</h4>
+                                <p>@item.Description</p>
+                                <p>
+                                    @if (item.HasDeal && (item.DateFromDeal <= DateTime.Today && item.DateToDeal >= DateTime.Today))
+                                    {
+                                        <strong>Costo Real: <del>@item.Cost</del><br />
+                                            Oferta: @item.CostDeal</strong>
+                                    }
+                                    else
+                                    {<strong>@item.Cost</strong>}
+                                </p>
+                                <p><a href="/Sale/ViewSale/@item.SaleId" class="btn" rel="tooltip" title="Preview"><i class="icon-eye-open"></i></a><a href="/Home/UserProfile/@item.User.UserId" rel="tooltip" title="Seller Profile" class="btn"><i class="icon-share"></i></a></p>
+                            </div>
+                            <img src="@item.Picture" alt="ALT NAME">
+                        </div>
+                        <h6>en @item.Category.Name por @item.User.FirstName  @item.User.LastName  </h6>
+                    </li>
+                }
+
+
+            </ul>
+            <div id="loadingbar" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background-color: #000; color: #FFF; text-align: center;"><b><i>Loading next 20...</i></b></div>
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+
+</div>

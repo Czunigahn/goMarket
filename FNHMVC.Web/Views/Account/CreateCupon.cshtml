@@ -1,0 +1,42 @@
+﻿@model FNHMVC.Web.ViewModels.CuponCreateFormModel
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+ }
+
+@using (Html.BeginForm("CreateCupon", "Account"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Crear</legend>   
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Discount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Discount)
+            @Html.ValidationMessageFor(model => model.Discount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Activado)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.Activado)
+            
+        </div>
+
+        <p>
+            <input type="submit" value="Crear Cupón" />
+        </p>
+    </fieldset>
+}
+

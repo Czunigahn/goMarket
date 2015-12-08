@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "";
+}
+
+@foreach(var item in ViewBag.sales)
+                {
+                    <!--Item-->
+                    <li class="span2">
+<div class="thumbnail @if (item.Spotlight && item.SpotlightApprove)
+                                                  {
+                                                      var x = "Spotlight"; 
+                                                      @x
+                                                  } ">
+                                <div class="caption @if (item.HasDeal && (item.DateFromDeal <= DateTime.Today && item.DateToDeal >= DateTime.Today))
+                                                    {
+                                                        var x = "Deal"; 
+                                                        @x
+                                                    }">
+                                    <h4>@item.Title</h4>
+                                    <p>@item.Description</p>
+                                    <p>@if (item.HasDeal && (item.DateFromDeal <= DateTime.Today && item.DateToDeal >= DateTime.Today))
+                                                    {
+                                                        <strong>Costo Real: <del>@item.Cost</del><br />Oferta: @item.CostDeal</strong>
+                                                    }else{<strong>@item.Cost</strong>}</p>
+                                    <p><a href="/Sale/ViewSale/@item.SaleId" class="btn" rel="tooltip" title="Preview"><i class="icon-eye-open"></i></a> <a href="/Home/UserProfile/@item.User.UserId" rel="tooltip" title="Seller Profile" class="btn"><i class="icon-share"></i></a></p>
+                                </div>
+                            <img src="@item.Picture" alt="ALT NAME">
+                        </div>
+                        <h6>Category: @item.Category.Name</h6>
+                    </li>
+                }

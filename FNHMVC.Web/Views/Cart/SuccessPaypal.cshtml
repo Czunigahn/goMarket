@@ -1,0 +1,80 @@
+﻿@model FNHMVC.Web.Models.CompleteCheckout
+@{
+    Layout = "~/Views/shared/_LayoutPrincipal.cshtml";
+}
+@{
+    ViewBag.Title = "Resumen de Compra";
+}
+
+
+<legend>
+    <div style="text-align: center;">
+        <h2>Resumen de Compra</h2>
+    </div>
+</legend>
+<div class="well">
+    <div class="container" style="width: auto;">
+        <table class="table table-hover-bordered table-striped">
+            
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Cost</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Cart)
+            {
+    
+                <tr>
+                    <td>@item.Sale.Title</td>
+                    <td>@item.Sale.Description</td>
+                    <td>@item.Sale.Cost</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.Quantity*item.Sale.Cost)</td>
+                </tr>
+            }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+<p>Total Sale: @ViewBag.TotalSale</p>
+@using (Html.BeginForm())
+{
+    <legend> Ingrese su dirección de envio</legend>
+    if(Model.FormModel.Shippings.Any())
+    {
+        <fieldset>
+            <div class="well span8">
+                <div class="container" style="width: auto;">
+                
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.FormModel.ShippingAdress)
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.FormModel.ShippingAdress, Model.FormModel.Shippings, "--Select Shipping Adress--")
+                        @Html.ValidationMessageFor(model => model.FormModel.ShippingAdress)
+                    </div>
+
+                </div>
+            </div>
+        </fieldset>
+        
+        <input type="submit" value="Completar Compra!" />
+        <p>Para agregar otra direccion ir <a href="/UserAdress/Index">aqui</a></p>
+    }
+    else
+    {
+        <p>No tienes una direccion puesta, favor ir <a href="/UserAdress/Index">aqui</a> para agregarla</p>
+    }
+
+    
+}
+
+<script type="text/javascript" src="https://s3.amazonaws.com/appfail-us/appfail.reporting.min.js?slug=7e435ee1-9f15-41ed-8796-a345550f5a67"></script>

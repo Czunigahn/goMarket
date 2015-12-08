@@ -1,0 +1,15 @@
+﻿@using BootstrapSupport
+@model FNHMVC.Web.ViewModels.CuponAddFormModel
+@using (Html.BeginForm("Index", "Cart"))
+{
+    <fieldset>
+
+        <div class="editor-field">
+            @Html.LabelFor(model => model.Name)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(m => m.Name, null, new { @class = "help-inline" })
+            <button type="submit" class="btn"><i ></i>Usar Cupon</button>                       
+        </div>                        
+
+    </fieldset>
+}
